@@ -1,0 +1,21 @@
+services:
+  backend:
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      - CORS_ORIGIN=http://localhost:3000 # match frontend dev port
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
+    ports:
+      - "3000:5173" # host:container
+    depends_on:
+      - backend
+    networks:
+      - appnet

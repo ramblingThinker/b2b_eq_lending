@@ -1,0 +1,133 @@
+.loanForm {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Inter', sans-serif;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        color: #222;
+    }
+
+    .subtitle {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #666;
+    }
+
+    fieldset {
+        border: none;
+        margin-bottom: 2rem;
+
+        legend {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #0077cc;
+        }
+    }
+
+    .fieldGroup {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+
+        label {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.95rem;
+            color: #444;
+
+            input,
+            select,
+            textarea {
+                margin-top: 0.4rem;
+                padding: 0.75rem;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 1rem;
+                transition: border-color 0.2s ease;
+
+                &:focus {
+                    border-color: #0077cc;
+                    outline: none;
+                    box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.15);
+                }
+            }
+
+            textarea {
+                min-height: 100px;
+                resize: vertical;
+            }
+        }
+    }
+
+    .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        color: #444;
+    }
+
+    .submitButton {
+        width: 100%;
+        padding: 1rem;
+        background: #0077cc;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: #005fa3;
+        }
+    }
+    .fullWidthField {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.95rem;
+            color: #444;
+
+            input,
+            textarea {
+                margin-top: 0.4rem;
+                padding: 0.85rem;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+                &:focus {
+                    border-color: #0077cc;
+                    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.15);
+                    outline: none;
+                }
+            }
+
+            textarea {
+                min-height: 140px;
+                resize: vertical;
+            }
+
+            .helperText {
+                margin-top: 0.3rem;
+                font-size: 0.8rem;
+                color: #666;
+            }
+        }
+    }
+}

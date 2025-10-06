@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MyPy / Ruff / Lint
+.mypy_cache/
+.ruff_cache/
+
+# Local env
+.env
