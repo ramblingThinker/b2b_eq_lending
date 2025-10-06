@@ -21,7 +21,7 @@ jobs:
 
             - name: Install dependencies & build
               run: |
-                  cd react-frontend
+                  cd frontend
                   npm ci
                   npm run build
 
