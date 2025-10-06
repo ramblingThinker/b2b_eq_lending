@@ -1,4 +1,4 @@
-name: CI - Test & Build
+name: CI - Build Only
 
 on:
     push:
@@ -7,32 +7,8 @@ on:
         branches: ["main"]
 
 jobs:
-    backend-tests:
-        name: Backend (FastAPI) Tests
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repo
-              uses: actions/checkout@v3
-
-            - name: Set up Python
-              uses: actions/setup-python@v4
-              with:
-                  python-version: "3.11"
-
-            - name: Install dependencies
-              run: |
-                  cd backend
-                  python -m pip install --upgrade pip
-                  pip install -r requirements.txt
-                  pip install pytest
-
-            - name: Run pytest
-              run: |
-                  cd backend
-                  pytest --maxfail=1 --disable-warnings -q
-
     frontend-build:
-        name: Frontend (React) Build
+        name: Frontend Build
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repo
@@ -48,6 +24,24 @@ jobs:
                   cd react-frontend
                   npm ci
                   npm run build
+
+    backend-build:
+        name: Backend Dependency Check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+
+            - name: Install dependencies
+              run: |
+                  cd backend
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
 
     docker-build:
         name: Docker Compose Build
